@@ -37,7 +37,7 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news/${newsId}`;
 //     contentEl.innerHTML = data.content;
 
 //     // サムネイル
-//     thumbnailEl.src = data.thumbnail.url;
+//     thumbnailEl.src = data.thumbnail ? data.thumbnail.url : "https://dummyimage.com/960x600.jpg";
 
 //   } catch (error) {
 //     console.error("詳細取得エラー:", error);
