@@ -1,7 +1,7 @@
 'use strict';
 
-const SERVICE_DOMAIN = window.ENV.SERVICE_DOMAIN;
-const API_KEY = window.ENV.API_KEY;
+const SERVICE_DOMAIN = window.ENV.MICROCMS_SERVICE_DOMAIN;
+const API_KEY = window.ENV.MICROCMS_API_KEY;
 
 // URLパラメータからIDを取得 (?id=xxxxx)
 const params = new URLSearchParams(window.location.search);
