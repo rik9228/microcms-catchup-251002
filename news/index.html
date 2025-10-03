@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>お知らせ一覧 | Sample Corp.</title>
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/news.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">
+        <a href="/">
+          Sample Corp.
+        </a>
+      </h1>
+      <nav class="nav">
+        <ul>
+          <li><a href="/#">ホーム</a></li>
+          <li><a href="/#about">会社概要</a></li>
+          <li><a href="/#services">サービス</a></li>
+          <li><a href="/#news">お知らせ</a></li>
+          <li><a href="/#">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 記事詳細 -->
+  <main class="container">
+    <section class="news-archive">
+      <h2 class="section-title">お知らせ一覧</h2>
+      <ul id="news-list" class="news-list">
+        <li>読み込み中...</li>
+        <!-- JSで差し込み -->
+        <!-- <li class="news-item">
+          <a href="/news/detail.html?id=sample" class="news-link">
+            <div class="news-meta">
+              <time datetime="2025-10-02">2025-10-02</time>
+              <span class="category">更新情報</span>
+            </div>
+            <h3 class="news-title">（サンプル）まずはこの記事を開きましょう</h3>
+            <p class="news-excerpt">お知らせテンプレートからAPIを作成しました。おつかれさまでした🎉</p>
+          </a>
+        </li> -->
+      </ul>
+    </section>
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Sample Corp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/env.js" defer></script>
+  <script src="/assets/js/news.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+# Node modules
+node_modules/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# macOS system files
+.DS_Store
+
+# Local environment files
+.env
+.env.local
+
+# BrowserSync cache
+.bs-cache/
+
+# Build / Dist output (もしビルドする場合)
+dist/
+build/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+
+# ENV
+/assets/js/env.js

@@ -1,0 +1,85 @@
+/* ====== News Archive ====== */
+.news-archive {
+  margin: 2rem 0 3rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #003366;
+  padding-left: .5rem;
+  color: #003366;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.news-item {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  transition: box-shadow .2s;
+}
+
+.news-item:hover {
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.news-link {
+  display: block;
+  padding: 1.2rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-meta {
+  font-size: .85rem;
+  color: #666;
+  margin-bottom: .5rem;
+  display: flex;
+  gap: .75rem;
+}
+
+.news-meta time {
+  font-weight: bold;
+}
+
+.news-meta .category {
+  background: #003366;
+  color: #fff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 3px;
+  font-size: .75rem;
+}
+
+.news-title {
+  font-size: 1.1rem;
+  margin: 0 0 .5rem;
+  color: #003366;
+}
+
+.news-excerpt {
+  font-size: .9rem;
+  color: #444;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* ====== レスポンシブ（2列/3列表示） ====== */
+@media (min-width: 640px) {
+  .news-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 960px) {
+  .news-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

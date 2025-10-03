@@ -1,0 +1,162 @@
+/* トップページ */
+
+/* ====== Hero（メインビジュアル） ====== */
+.hero {
+  background: url('https://picsum.photos/1200/500?grayscale') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+  padding: 6rem 1rem;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  /* オーバーレイ */
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  margin-bottom: 2rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: .75rem 1.5rem;
+  background: #003366;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.btn:hover {
+  background: #0055aa;
+}
+
+/* ====== News（お知らせ） ====== */
+.news-section {
+  margin: 2rem 0;
+}
+
+.news-section h2 {
+  font-size: 1.3rem;
+  border-left: 4px solid #003366;
+  padding-left: .5rem;
+  margin-bottom: 1rem;
+}
+
+.news-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.news-list li {
+  background: #fff;
+  margin-bottom: .75rem;
+  padding: .75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: box-shadow .2s;
+}
+
+.news-list li:hover {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.news-list a {
+  color: #003366;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.news-list a:hover {
+  text-decoration: underline;
+}
+
+.news-list small {
+  display: block;
+  color: #666;
+  font-size: .8rem;
+  margin-top: .25rem;
+}
+
+.news-link {
+  text-align: right;
+}
+
+/* ====== About ====== */
+.about {
+  /* margin: 3rem 0; */
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.about p {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ====== Services ====== */
+.services {
+  /* margin: 3rem 0; */
+}
+
+.services h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.service-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.service-item {
+  flex: 1;
+  min-width: 250px;
+  background: #fff;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  text-align: center;
+  transition: box-shadow .2s;
+}
+
+.service-item:hover {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service-item h3 {
+  margin-bottom: .5rem;
+  color: #003366;
+}
+
+/* ====== フッター ====== */
+.site-footer {
+  background: #003366;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  font-size: .9rem;
+}

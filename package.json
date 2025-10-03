@@ -1,0 +1,10 @@
+{
+  "name": "microcms-sample",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "browser-sync start --server --files 'index.html, detail.html, css/*.css, *.js'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  }
+}
