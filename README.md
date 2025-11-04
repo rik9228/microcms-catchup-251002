@@ -6,16 +6,17 @@
 ---
 
 ## 📚 学べること
-1. [CMSについて](./docs/CMSについて.md)
-2. [Javascriptの基礎](./docs/Javascript基礎.md)
-3. [microCMS との繋ぎこみ](./docs/microCMSを使ってみる.md)
-4. [サイトに公開しよう](./docs/サイトに公開しよう.md)
-5. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
+1. [はじめに](./docs/はじめに.md)
+2. [CMSについて](./docs/CMSについて.md)
+3. [Javascriptの基礎](./docs/Javascript基礎.md)
+4. [microCMSを使ってみる](./docs/microCMSを使ってみる.md)
+5. [サイトに公開しよう](./docs/サイトに公開しよう.md)
+6. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
 
 ## 📂 プロジェクト構成
 
 ```bash
-microcms-catchup-251002/
+microcms-catchup_251107/
 ├── index.html # トップページ
 ├── news/ # ニュース一覧・詳細ページ
 │ ├── index.html
@@ -32,7 +33,7 @@ microcms-catchup-251002/
 1. **リポジトリをクローン**
 ```bash
 git clone <このリポジトリのURL>
-cd microcms-catchup-251002
+cd microcms-catchup_251107
 ```
 
 2. 依存関係をインストール
