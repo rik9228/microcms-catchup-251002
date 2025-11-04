@@ -8,7 +8,7 @@
 ## 📚 学べること
 1. [CMSについて](./docs/CMSについて.md)
 2. [Javascriptの基礎](./docs/Javascript基礎.md)
-3. [microCMS との繋ぎこみ](./docs/microCMSとの繋ぎこみ.md)
+3. [microCMS との繋ぎこみ](./docs/microCMSを使ってみる.md)
 4. [サイトに公開しよう](./docs/サイトに公開しよう.md)
 5. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
 
