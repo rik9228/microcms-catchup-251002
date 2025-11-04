@@ -58,21 +58,17 @@ window.ENV = {
 - ニュース一覧 (/news/)
   - microCMS API から取得した記事の一覧を表示。
 - ニュース詳細 (/news/post/)
-  - 記事の詳細情報を表示。
+  - 記事の詳細情報を表示
 
 ## 📚 学べること
-- microCMS の基本的な使い方
-- API 経由でデータを取得して HTML に表示する流れ
-- Git を用いたソース管理
-- Node.js / npm を使った開発環境の基本
+- [Javascriptの基礎](./docs/Javascript基礎.md)
+- [microCMS との繋ぎこみ](./docs/microCMSとの繋ぎこみ.md)
+- [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
 
 ## 🛠 使用技術
-- microCMS - ヘッドレス CMS
+- microCMS - ヘッドレスCMS
 - HTML / CSS / JavaScript
 - Node.js（パッケージ管理に使用）
-
-## ✅ 今後の課題
-React / Vue / Astro などフレームワーク版の実装例追加
 
 ## 📄 ライセンス
 MIT License
