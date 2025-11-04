@@ -5,10 +5,18 @@
 
 ---
 
+## 📚 学べること
+1. [はじめに](./docs/はじめに.md)
+2. [CMSについて](./docs/CMSについて.md)
+3. [Javascriptの基礎](./docs/Javascript基礎.md)
+4. [microCMSを使ってみる](./docs/microCMSを使ってみる.md)
+5. [サイトに公開しよう](./docs/サイトに公開しよう.md)
+6. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
+
 ## 📂 プロジェクト構成
 
 ```bash
-microcms-catchup-251002/
+microcms-catchup_251107/
 ├── index.html # トップページ
 ├── news/ # ニュース一覧・詳細ページ
 │ ├── index.html
@@ -25,7 +33,7 @@ microcms-catchup-251002/
 1. **リポジトリをクローン**
 ```bash
 git clone <このリポジトリのURL>
-cd microcms-catchup-251002
+cd microcms-catchup_251107
 ```
 
 2. 依存関係をインストール
@@ -58,21 +66,12 @@ window.ENV = {
 - ニュース一覧 (/news/)
   - microCMS API から取得した記事の一覧を表示。
 - ニュース詳細 (/news/post/)
-  - 記事の詳細情報を表示。
-
-## 📚 学べること
-- microCMS の基本的な使い方
-- API 経由でデータを取得して HTML に表示する流れ
-- Git を用いたソース管理
-- Node.js / npm を使った開発環境の基本
+  - 記事の詳細情報を表示
 
 ## 🛠 使用技術
-- microCMS - ヘッドレス CMS
+- microCMS - ヘッドレスCMS
 - HTML / CSS / JavaScript
 - Node.js（パッケージ管理に使用）
-
-## ✅ 今後の課題
-React / Vue / Astro などフレームワーク版の実装例追加
 
 ## 📄 ライセンス
 MIT License
