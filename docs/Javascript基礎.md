@@ -262,3 +262,7 @@ list.appendChild(li)
 | 配列     | 複数データをまとめて扱う   | 記事一覧 (`data.contents`)     |
 | オブジェクト | 1つの情報のまとまり     | 記事1件 (`{title, date, id}`) |
 | DOM操作  | HTML要素を動的に変更する | 取得したデータを画面に表示              |
+
+---
+
+[microCMS との繋ぎこみ](/docs/microCMSを使ってみる.md)

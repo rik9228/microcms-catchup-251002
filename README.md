@@ -5,6 +5,13 @@
 
 ---
 
+## 📚 学べること
+1. [CMSについて](./docs/CMSについて.md)
+2. [Javascriptの基礎](./docs/Javascript基礎.md)
+3. [microCMS との繋ぎこみ](./docs/microCMSとの繋ぎこみ.md)
+4. [サイトに公開しよう](./docs/サイトに公開しよう.md)
+5. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
+
 ## 📂 プロジェクト構成
 
 ```bash
@@ -59,11 +66,6 @@ window.ENV = {
   - microCMS API から取得した記事の一覧を表示。
 - ニュース詳細 (/news/post/)
   - 記事の詳細情報を表示
-
-## 📚 学べること
-- [Javascriptの基礎](./docs/Javascript基礎.md)
-- [microCMS との繋ぎこみ](./docs/microCMSとの繋ぎこみ.md)
-- [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
 
 ## 🛠 使用技術
 - microCMS - ヘッドレスCMS
