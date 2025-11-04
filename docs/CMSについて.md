@@ -43,4 +43,4 @@ etc
 
 ---
 
-[Javascriptの基礎](/docs/Javascript基礎.md)
+[Javascript基礎](/docs/Javascript基礎.md)
