@@ -52,6 +52,13 @@ async function fetchNews() {
       // li 要素を生成
       const li = document.createElement("li");
       li.className = "news-item";
+      /**
+       * 使用する場合は、こちらのinnerHTMLの内容を適当に変えてください
+       * id: 記事ID
+       * title: 記事名
+       * publishedAt: 公開日
+       * category.name: カテゴリー名
+       */
       li.innerHTML = `
         <a href="/news/post/?id=${item.id}" class="news-link">
           <div class="news-meta">

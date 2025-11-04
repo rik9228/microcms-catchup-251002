@@ -41,6 +41,12 @@ async function fetchNews() {
     // contents が存在すれば 1件ずつリストを作成
     data.contents.forEach(item => {
       const li = document.createElement("li");
+      /**
+       * 使用する場合は、こちらのinnerHTMLの内容を適当に変えてください
+       * id: 記事ID
+       * title: 記事名
+       * publishedAt: 公開日
+       */
       li.innerHTML = `
         <a href="/news/post/?id=${item.id}" aria-label="${item.title} 詳細へ">
           ${item.title}
