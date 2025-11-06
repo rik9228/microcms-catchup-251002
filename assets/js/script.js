@@ -26,7 +26,6 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news`;
 async function fetchNews() {
   // 1. DOM からリスト要素を取得
   const listEl = document.getElementById('news-list');
-
   // ローディングメッセージを表示
   listEl.innerHTML = "<li id='loading'>読み込み中...</li>";
 
@@ -41,7 +40,7 @@ async function fetchNews() {
     const data = await res.json();
 
     // contents が存在すれば 1件ずつリストを作成
-    data.contents.forEach(item => {
+    data.contents.forEach((item, idx) => {
       const li = document.createElement("li");
       /**
        * 使用する場合は、こちらのinnerHTMLの内容を適当に変えてください
@@ -51,20 +50,22 @@ async function fetchNews() {
        * ダミーのHTML↓ ↓ ↓
        * <li>
        *  <a href="/news/post/?id=記事ID" aria-label="記事名 詳細へ">記事名</a>
-       *   <small>公開日</small>
+       *  <small>公開日</small>
        * </li>
        */
 
       // クエリパラメータで記事IDを渡すリンクを生成
       // 例： /news/post/?id=xxxx
+      // slice で日付部分だけ切り出し（YYYY-MM-DD） 元のデータが ISO 形式なので先頭10文字を取得
       li.innerHTML = `
-        <a href="/news/post/?id=${item.id}" aria-label="${item.title} 詳細へ">
-          ${item.title}
-        </a>
+        <a href="/news/post/?id=${item.id}" aria-label="${item.title} 詳細へ">${item.title}</a>
         <small>${item.publishedAt?.slice(0, 10) || "日付未定"}</small>
       `;
 
-      document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
+      //　最後の要素なら読み込み中メッセージを削除
+      if (idx === data.contents.length - 1) {
+        document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
+      }
 
       listEl.appendChild(li);
     });
@@ -72,13 +73,12 @@ async function fetchNews() {
     if (data.contents.length === 0) {
       listEl.innerHTML = "<li>現在お知らせはありません。</li>";
     }
-
   } catch (error) {
-    // 通信や JSON 変換に失敗した場合
+    // 通信や JSON 変換に失敗した場合など
     console.error("取得エラー:", error);
     listEl.innerHTML = "<li>データの取得に失敗しました。</li>";
   }
 }
 
 // 関数を実行してページ読み込み時にニュースを表示する
-// fetchNews();
+fetchNews();

@@ -43,7 +43,6 @@ async function fetchDetail() {
     const data = await res.json();
 
     // ダミーデータ
-
     /**
      * <!-- <h2 id="news-title">記事テスト - 2</h2>
         <div class="news-meta">
