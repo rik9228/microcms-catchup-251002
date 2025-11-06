@@ -37,11 +37,8 @@ async function fetchNews() {
     // JSON に変換
     const data = await res.json();
 
-    // 初期状態の「読み込み中」などを削除
-    listEl.innerHTML = "";
-
     // 各ニュース記事をリストとして表示
-    data.contents.forEach(item => {
+    data.contents.forEach((item, idx) => {
       // 本文からタグを除去してテキストだけにする
       const plainText = item.content
         .replace(/<[^>]*>?/gm, "") // HTMLタグ除去
@@ -81,7 +78,12 @@ async function fetchNews() {
           <p class="news-excerpt">${excerpt}</p>
         </a>
       `;
-      document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
+
+      //　最後の要素なら読み込み中メッセージを削除
+      if(idx === data.contents.length - 1) {
+        document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
+      }
+
       listEl.appendChild(li);
     });
 
