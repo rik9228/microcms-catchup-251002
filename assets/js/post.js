@@ -81,4 +81,4 @@ async function fetchDetail() {
   }
 }
 
-fetchDetail();
+// fetchDetail();
