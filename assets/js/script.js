@@ -81,4 +81,4 @@ async function fetchNews() {
 }
 
 // 関数を実行してページ読み込み時にニュースを表示する
-// fetchNews();
+fetchNews();

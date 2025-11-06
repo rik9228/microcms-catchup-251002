@@ -97,4 +97,4 @@ async function fetchNews() {
 }
 
 // ページ読み込み時に実行
-// fetchNews();
+fetchNews();
