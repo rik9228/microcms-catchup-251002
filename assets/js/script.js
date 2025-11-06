@@ -24,8 +24,13 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news`;
  * @returns {Promise<void>} 非同期処理で DOM にリストを反映するだけなので返り値はなし
  */
 async function fetchNews() {
-  const listEl = document.getElementById("news-list");
+  // 1. DOM からリスト要素を取得
+  const listEl = document.getElementById('news-list');
 
+  // ローディングメッセージを表示
+  listEl.innerHTML = "<li id='loading'>読み込み中...</li>";
+
+  // 2. microCMS からデータを取得
   try {
     // microCMS からデータを取得
     const res = await fetch(ENDPOINT, {
@@ -35,9 +40,6 @@ async function fetchNews() {
     // レスポンスを JSON に変換
     const data = await res.json();
 
-    // 既存のリストを一旦クリア
-    listEl.innerHTML = "";
-
     // contents が存在すれば 1件ずつリストを作成
     data.contents.forEach(item => {
       const li = document.createElement("li");
@@ -46,19 +48,31 @@ async function fetchNews() {
        * id: 記事ID
        * title: 記事名
        * publishedAt: 公開日
+       * ダミーのHTML↓ ↓ ↓
+       * <li>
+       *  <a href="/news/post/?id=記事ID" aria-label="記事名 詳細へ">記事名</a>
+       *   <small>公開日</small>
+       * </li>
        */
+
+      // クエリパラメータで記事IDを渡すリンクを生成
+      // 例： /news/post/?id=xxxx
       li.innerHTML = `
         <a href="/news/post/?id=${item.id}" aria-label="${item.title} 詳細へ">
           ${item.title}
         </a>
-        <small>${item.publishedAt?.slice(0,10) || "日付未定"}</small>
+        <small>${item.publishedAt?.slice(0, 10) || "日付未定"}</small>
       `;
+
+      document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
+
       listEl.appendChild(li);
     });
     // データが空ならメッセージ表示
     if (data.contents.length === 0) {
       listEl.innerHTML = "<li>現在お知らせはありません。</li>";
     }
+
   } catch (error) {
     // 通信や JSON 変換に失敗した場合
     console.error("取得エラー:", error);
@@ -67,4 +81,4 @@ async function fetchNews() {
 }
 
 // 関数を実行してページ読み込み時にニュースを表示する
-fetchNews();
+// fetchNews();

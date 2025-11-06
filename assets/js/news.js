@@ -25,6 +25,8 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news`;
 async function fetchNews() {
   // ニュース一覧を表示する ul（または ol）要素
   const listEl = document.getElementById("news-list");
+  // ローディングメッセージを表示
+  listEl.innerHTML = "<li id='loading'>読み込み中...</li>";
 
   try {
     // microCMS API からデータを取得
@@ -58,12 +60,20 @@ async function fetchNews() {
        * title: 記事名
        * publishedAt: 公開日
        * category.name: カテゴリー名
+       * excerpt: 抜粋文
+       * ダミーのHTML↓ ↓ ↓
+       * <li>
+       *  <a href="/news/post/?id=記事ID" aria-label="記事名 詳細へ">記事名</a>
+       *   <small>公開日</small>
+       *  <span>カテゴリー名</span>
+       *  <p>本文からの抜粋文</p>
+       * </li>
        */
       li.innerHTML = `
         <a href="/news/post/?id=${item.id}" class="news-link">
           <div class="news-meta">
             <time datetime="${item.publishedAt}">
-              ${item.publishedAt ? item.publishedAt.slice(0,10) : "日付未定"}
+              ${item.publishedAt ? item.publishedAt.slice(0, 10) : "日付未定"}
             </time>
             ${item.category ? `<span class="category">${item.category.name}</span>` : ""}
           </div>
@@ -71,6 +81,7 @@ async function fetchNews() {
           <p class="news-excerpt">${excerpt}</p>
         </a>
       `;
+      document.querySelector('#loading')?.remove(); // 読み込み中メッセージを削除
       listEl.appendChild(li);
     });
 

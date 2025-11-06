@@ -30,36 +30,51 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news/${newsId}`;
  */
 async function fetchDetail() {
   // DOM 要素を取得
-  const titleEl = document.getElementById("news-title");      // 記事タイトル表示エリア
-  const dateEl = document.getElementById("news-date");        // 公開日表示エリア
-  const categoryEl = document.getElementById("news-category");// カテゴリ表示エリア
-  const contentEl = document.getElementById("news-content");  // 本文表示エリア
-  const thumbnailEl = document.getElementById("news-thumbnail"); // サムネイル画像
+  const contentEl = document.getElementById("news-contents");  // 本文表示エリア
+
+  contentEl.innerHTML = "<p>読み込み中...</p>";
 
   try {
     // microCMS API から記事データを取得
     const res = await fetch(ENDPOINT, {
       headers: { "X-API-KEY": API_KEY }
     });
-
     // レスポンスを JSON に変換
     const data = await res.json();
 
-    // タイトルを表示
-    titleEl.textContent = data.title;
+    // ダミーデータ
 
-    // 公開日を表示（YYYY-MM-DD の形式）
-    dateEl.textContent = `公開日: ${data.publishedAt?.slice(0,10)}`;
+    /**
+     * <!-- <h2 id="news-title">記事テスト - 2</h2>
+        <div class="news-meta">
+          <p class="news-date" id="news-date">公開日: 2025-10-02</p>
+          <p class="news-category" id="news-category">カテゴリー: 更新情報</p>
+        </div>
+        <div class="news-thumbnail">
+          <img id="news-thumbnail" src="https://dummyimage.com/960x600.jpg" alt="" width="960" height="600">
+        </div>
+        <div id="news-content" class="news-content">
+          <h2 id="h56f7699da4">見出しが入ります</h2>
+          <p>テキストが入ります</p>
+          <p>テキストが入ります</p>
+          <p>テキストが入ります</p>
+        </div> -->
+     */
 
-    // カテゴリを表示（カテゴリー名が入っている想定）
-    categoryEl.innerHTML = `カテゴリー: ${data.category.name}`;
-
-    // 本文を HTML として表示（microCMS 側で HTML として保存されているため innerHTML を使用）
-    contentEl.innerHTML = data.content;
-
-    // サムネイル画像を表示（なければダミー画像に置き換え）
-    thumbnailEl.src = data.thumbnail ? data.thumbnail.url : "https://dummyimage.com/960x600.jpg";
-
+    // 各要素にデータを反映
+    contentEl.innerHTML = `
+        <h2 id="news-title">${data.title}</h2>
+        <div class="news-meta">
+          <p class="news-date" id="news-date">公開日: ${data.publishedAt ? data.publishedAt.slice(0, 10) : "日付なし"}</p>
+          <p class="news-category" id="news-category">カテゴリー: ${data.category ? data.category.name : "カテゴリーなし"}</p>
+        </div>
+        <div class="news-thumbnail">
+          <img id="news-thumbnail" src="${data.thumbnail ? data.thumbnail.url : "https://dummyimage.com/960x600.jpg"}" alt="" width="960" height="600">
+        </div>
+        <div id="news-content" class="news-content">
+          ${data.content}
+        </div>
+        `
   } catch (error) {
     // エラー発生時の処理
     console.error("詳細取得エラー:", error);
