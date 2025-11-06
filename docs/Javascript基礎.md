@@ -102,43 +102,7 @@ getUsers()
         }
       },
       "email": "kerim.koybasi@example.com",
-      "login": {
-        "uuid": "8944e4dd-cad3-4ecf-becf-b780fe9bcec8",
-        "username": "smallzebra761",
-        "password": "treasure",
-        "salt": "VPZm3V08",
-        "md5": "61fa6ee0cff1b9502af181ef20ae50ff",
-        "sha1": "0de1afb168ace8924967a6f31aff13a16e7636d0",
-        "sha256": "d9c46fbc4727bc8805eb4e07e777f52855e4bf56d81eb01fca495b4dc071ce34"
-      },
-      "dob": {
-        "date": "1972-01-19T18:13:02.963Z",
-        "age": 53
-      },
-      "registered": {
-        "date": "2013-03-26T09:01:06.744Z",
-        "age": 12
-      },
-      "phone": "(995)-788-8541",
-      "cell": "(987)-037-1481",
-      "id": {
-        "name": "",
-        "value": null
-      },
-      "picture": {
-        "large": "https://randomuser.me/api/portraits/men/2.jpg",
-        "medium": "https://randomuser.me/api/portraits/med/men/2.jpg",
-        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/2.jpg"
-      },
-      "nat": "TR"
-    }
-  ],
-  "info": {
-    "seed": "c3b9e90230262975",
-    "results": 1,
-    "page": 1,
-    "version": "1.4"
-  }
+      ...
 }
 ```
 </details>

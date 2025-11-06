@@ -52,11 +52,11 @@
 ※microCMSなどのサービスでは、セキュリティの観点で`APIキー`が必要になることが多いです。
 
 ```javascript
-// 例：ニュース一覧
-const ENDPOINT = `https://xxxxx.microcms.io/api/v1/news`; // xxxxx はサービスID
+const SERVICE_DOMAIN = "xxxxx"; // xxxxx はmicroCMSで作成したサービスID
+const ENDPOINT = `https://${SERVICE_DOMAIN}}$.microcms.io/api/v1/news`; // news：作成したAPIのエンドポイント
 ```
 
--> `SERVICE_DOMAIN`, `API_KEY` はサービスごとに適宜変更してください。
+-> `SERVICE_DOMAIN` はサービスごとに適宜変更してください。
 
 #### 2. データ取得（fetch）
 
@@ -71,7 +71,32 @@ async function fetchNews() {
 }
 ```
 
+-> `API_KEY` はサービスごとに適宜変更してください。
+
 #### 3. DOMに描画
+
+取得したデータをDOMに描画します。
+
+microcmsでは、たとえば以下のようなデータが返ってきます。
+
+```json
+{
+  "contents": [
+    {
+      "id": "xxxxxxxxxxxx",
+      "title": "記事タイトル",
+      "publishedAt": "2023-01-01T00:00:00+09:00"
+    },
+    ...
+  ],
+  "totalCount": 100,
+  "offset": 0,
+  "limit": 10,
+}
+```
+
+contents（配列）の中に記事データが入っているので、<br/>
+これを`forEach()`によるループ処理でDOMを作っていきます。
 
 ```javascript
 data.contents.forEach(item => {
@@ -90,16 +115,20 @@ data.contents.forEach(item => {
 
 ### トップページ
 
-[該当ファイル](/assets/js/script.js)
+[HTML](/index.html)
+[JavaScript](/assets/js/script.js)
 
 ### 記事詳細ページ
 
-[該当ファイル](/assets/js/post.js)
+※詳細ページについては、記事詳細ページ用のHTMLひとつを使って、<br />URLパラメーターで記事IDを受け取り、APIから該当記事を取得して表示します。
 
-### 詳細ページ
+[HTML](/news/post/index.html)
+[JavaScript](/assets/js/post.js)
 
-[該当ファイル](/assets/js/news.js)
+### 一覧ページ
 
+[HTML](/news/index.html)
+[JavaScript](/assets/js/news.js)
 
 ---
 
