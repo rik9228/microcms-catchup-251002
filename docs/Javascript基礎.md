@@ -1,96 +1,74 @@
 # 💡 microCMS連携の前に理解しておきたいこと（JavaScript基礎） - 10 min
 
-microCMSを使用する上で、以下の知識を必要とします。
+microCMSを使う前に、まずは以下の基本的なJavaScriptの知識をおさえておきましょう。  
+これらを理解しておくと、APIとのやり取りやデータ表示の流れがスムーズになります。
 
-- **API**
-- **非同期処理**
-- 基本的な配列操作
-- オブジェクトの扱い
-- DOM操作の基礎
+---
 
-## 1. API
-🔸 API（Application Programming Interface）とは
+## 1. APIとは
 
--> 他のサービスとデータを取得・送信するために必要な仕組み
-例：microCMSやWeather API、GitHub APIなど
+### 🔸 API（Application Programming Interface）とは？
+他のサービスと**データを受け渡しするための仕組み**です。  
+たとえば次のような場面で使われます。
 
-Web制作では、コンテンツ・記事取得周りにおいて、ブログ運営などで使用するケースが多いです。
+- microCMS：記事データを取得する  
+- Weather API：天気情報を取得する  
+- GitHub API：リポジトリ情報を取得する  
 
-また、アプリケーションでも天気情報や電車の遅延情報などを取得して使いたい
+Web制作では「外部サービスから情報をもらう」ことが多く、  
+APIはそのための“データの受け渡し”のような役割を持っています。
 
-といった場合に、国や自治体などが公開しているデータを取得して有効活用できます。
+💡 たとえば、ブログの記事をmicroCMSのAPIから取得して一覧表示する、  
+というのが典型的な例です。
+
+---
 
 ## 2. 非同期処理 （async / await）
 
-🔸 非同期処理とは？
+### 🔸 なぜ「非同期処理」が必要なの？
+APIを使ってデータを取得するとき、通信には少し時間がかかります。  
+もし通信が終わるまでプログラム全体が止まってしまったら、  
+ボタンも押せず、画面も動かない状態になってしまいます。
 
-WebサイトでAPIを使うとき、データのやり取り（通信）には少し時間がかかります。
+そこで登場するのが **非同期処理（Asynchronous Processing）**。  
+「時間がかかる処理（通信など）を待っている間に、他の処理を進める」仕組みです。
 
-たとえば microCMS から記事を取得するときも、
+### 🔸 fetch() は非同期で動く
 
-ネットワークの状態によっては 0.5 秒〜2 秒 ほどかかることがあります。
-
-この「時間がかかる処理」を待たずに進める仕組みが、JavaScriptの「非同期処理」です。
-
-<br>
-
-🔸 なぜ非同期処理が必要なのか？
-
-もしJavaScriptが **すべての処理を順番にしか実行できない（同期処理）** だけだったら、
-通信中はアプリ全体が止まってしまいます。
-
-```javascript
-// 仮に同期的な世界だったら…
-const data = fetchSync('https://example.microcms.io/api/v1/news') // ← 通信完了まで停止
-console.log('データ取得完了:', data)
-```
-
-この場合、通信が終わるまでユーザーは何もできません。
-
-ボタンも押せないし、画面もスクロールできません。
-
-それを防ぐために JavaScript は **非同期処理** を使い、<br/>「通信が終わるまで他の処理を進める」ことができるようになっています。（そういう設計になっている）
-
-<br>
-
-🔸 fetch() は非同期で動く
-
-JavaScriptでAPI通信を行う際によく使うのが `fetch()` です。
-
-->  `Promiseオブジェクト` を返します。
-
-ここでは`https://randomuser.me/api/` を例にAPIを叩いてみます。
+JavaScriptでAPIを呼び出すには `fetch()` を使います。  
+この関数は「すぐに結果を返さず、**後で結果を渡すよ**」という**Promiseオブジェクト**を返します。
 
 ```javascript
 const res = fetch('https://randomuser.me/api/')
-console.log(res) // Promise { <pending> } ← “まだ結果が届いていません”
+console.log(res) // Promise { <pending> } ← 結果は“あとで届く”状態
 ```
 
--> この時点では「結果は後で渡すね」という **“約束（Promise）の箱“** がとりあえず返されます。
+Promise（プロミス）は「後で結果を渡すという約束」だと考えると分かりやすいです。
+ただし、このままでは結果を取り出せません。
 
-<br>
+### 🔸 async / await の基本構文
 
-🔸 async / await の基本構文
+そこで登場するのが `async / await` です。   
+これは「結果が届くまで少しだけ待ってから次に進む」ための書き方です。
 
-約束の箱を開けるために必要なのが`async / await` という仕組みです。
-
-async と await を使うと、
-「通信が終わるのを一時的に待ってから次の処理へ進む」ことができます。
-
-`fetch()` の結果は **Promise（未確定のデータ）** なので、
-
-実際の中身を使うには await で“解凍”（するようなイメージ）してから扱う必要があります。
+※ ramdomuser.me はランダムなユーザーデータを返すAPIです。試しに使ってみましょう。
 
 ```javascript
 async function getUsers() {
-  // 通信が終わるまでこの行で一時停止
-  const res = await fetch('https://randomuser.me/api/');
-  // レスポンスデータをJSONに変換（ここも非同期処理）
+  // 通信が終わるまで一時的にストップ
+  const res = await fetch('https://randomuser.me/api/')
+  // 取得したデータをJSON形式に変換
   const data = await res.json()
   console.log(data)
 }
 getUsers()
 ```
+
+- await：結果が届くまで待つ
+- async：この関数の中で await が使えるようにする宣言
+
+つまり await は「約束の箱（Promise）」を開けるための合言葉のようなものです。
+データが届くと、次の行に進みます。
 
 <details>
   <summary>実際に返される取得データ</summary>
@@ -124,43 +102,7 @@ getUsers()
         }
       },
       "email": "kerim.koybasi@example.com",
-      "login": {
-        "uuid": "8944e4dd-cad3-4ecf-becf-b780fe9bcec8",
-        "username": "smallzebra761",
-        "password": "treasure",
-        "salt": "VPZm3V08",
-        "md5": "61fa6ee0cff1b9502af181ef20ae50ff",
-        "sha1": "0de1afb168ace8924967a6f31aff13a16e7636d0",
-        "sha256": "d9c46fbc4727bc8805eb4e07e777f52855e4bf56d81eb01fca495b4dc071ce34"
-      },
-      "dob": {
-        "date": "1972-01-19T18:13:02.963Z",
-        "age": 53
-      },
-      "registered": {
-        "date": "2013-03-26T09:01:06.744Z",
-        "age": 12
-      },
-      "phone": "(995)-788-8541",
-      "cell": "(987)-037-1481",
-      "id": {
-        "name": "",
-        "value": null
-      },
-      "picture": {
-        "large": "https://randomuser.me/api/portraits/men/2.jpg",
-        "medium": "https://randomuser.me/api/portraits/med/men/2.jpg",
-        "thumbnail": "https://randomuser.me/api/portraits/thumb/men/2.jpg"
-      },
-      "nat": "TR"
-    }
-  ],
-  "info": {
-    "seed": "c3b9e90230262975",
-    "results": 1,
-    "page": 1,
-    "version": "1.4"
-  }
+      ...
 }
 ```
 </details>

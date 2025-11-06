@@ -2,33 +2,33 @@
 
 ## microCMSについて
 
+国内では、**microCMS** が代表的なヘッドレスCMSとして人気です。
 [microCMS｜APIベースの日本製ヘッドレスCMS](https://microcms.io/)
+
+## 🌟 特徴
 
 - **純国産ヘッドレスCMS**
     - 日本の開発チームによって運営されている。海外製CMSに比べて「日本語対応の手厚さ」が大きな強み。
-- **好みの言語やフレームワークで使える**
-    - Ruby、Next.js、Vue.js、GO言語など、幅広い選択肢での連携が可能です。実際に、公式サイトに複数の言語やフレームワーク用のドキュメントが丁寧に用意されている。
-- **シンプルなUI**
-    - 非エンジニアでも直感的に操作できる管理画面。
-    WordPressほど複雑な設定やプラグイン管理がいらない。
+- **直感的な管理画面**
+  - 非エンジニアでも直感的に操作できる管理画面。  
 - **料金体系が明確**
     - 無料プラン〜有料プランまで段階的に用意されており、スタートアップや小規模サイトでも導入しやすい。
 - **実績の多さ**
     - 国産ヘッドレスCMSではトップシェアで、[採用実績](https://microcms.io/projects/) が豊富。
+- **好みの言語やフレームワークで使える**
+    - Ruby、Next.js、Vue.js、GO言語など、幅広い選択肢での連携が可能です。実際に、公式サイトに複数の言語やフレームワーク用のドキュメントが丁寧に用意されている。
 
-## 概要
+---
 
-microCMSはヘッドレスCMSとして記事やコンテンツをAPI経由で取得できます。
+### 🧭 向いているケース
+- ニュース・お知らせなど定期更新が多いサイト  
+- 既存サイトの一部だけをCMS化したい  
+- 少人数チームでスピーディに運用したい  
 
-ここでは、JavaScriptを使ってニュース一覧・詳細ページを取得・表示する方法をまとめます。
 
+## 実装
 
-## 前提条件
-
-- microCMS のサービスを作成済み
-- API キー（X-API-KEY）が発行されている
-
-## 構築の流れ 
+### 流れ 
 
 1. セットアップ
     -  リポジトリのクローン（アカウントをお持ちでない方は、[こちら]()を展開してください。）
@@ -37,32 +37,66 @@ microCMSはヘッドレスCMSとして記事やコンテンツをAPI経由で取
 3. 詳細ページ作成
 4. 一覧ページ作成
 
-## 基本の書き方
+### 前提条件
 
-### 1. エンドポイント設定
+- microCMS のサービスを作成済み
+- API キー（X-API-KEY）が発行されている
 
-```javascript
-const SERVICE_DOMAIN = "xxxxx";
-const API_KEY = "yyyyy";
+### 基本の書き方
 
-// 例：ニュース一覧
-const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news`;
-```
+#### 1. エンドポイント設定
 
--> `SERVICE_DOMAIN`, `API_KEY` はサービスごとに適宜変更してください。
+エンドポイントとは、APIのURLのことです。
+こちらにアクセスすることで、APIが返すデータを取得できます。
 
-### 2. データ取得（fetch）
+※microCMSなどのサービスでは、セキュリティの観点で`APIキー`が必要になることが多いです。
 
 ```javascript
-const res = await fetch(ENDPOINT, {
-  headers: { "X-API-KEY": API_KEY }
-});
-const data = await res.json();
+const SERVICE_DOMAIN = "xxxxx"; // xxxxx はmicroCMSで作成したサービスID
+const ENDPOINT = `https://${SERVICE_DOMAIN}}$.microcms.io/api/v1/news`; // news：作成したAPIのエンドポイント
 ```
 
-※サービスを利用するための`API_KEY`が必要になります。
+-> `SERVICE_DOMAIN` はサービスごとに適宜変更してください。
 
-### 3. DOMに描画
+#### 2. データ取得（fetch）
+
+```javascript
+async function fetchNews() {
+  const res = await fetch(ENDPOINT, {
+    headers: { "X-API-KEY": API_KEY } // サービスを利用するためのAPIキーが必要
+  });
+  const data = await res.json();
+
+  return data;
+}
+```
+
+-> `API_KEY` はサービスごとに適宜変更してください。
+
+#### 3. DOMに描画
+
+取得したデータをDOMに描画します。
+
+microcmsでは、たとえば以下のようなデータが返ってきます。
+
+```json
+{
+  "contents": [
+    {
+      "id": "xxxxxxxxxxxx",
+      "title": "記事タイトル",
+      "publishedAt": "2023-01-01T00:00:00+09:00"
+    },
+    ...
+  ],
+  "totalCount": 100,
+  "offset": 0,
+  "limit": 10,
+}
+```
+
+contents（配列）の中に記事データが入っているので、<br/>
+これを`forEach()`によるループ処理でDOMを作っていきます。
 
 ```javascript
 data.contents.forEach(item => {
@@ -75,8 +109,26 @@ data.contents.forEach(item => {
   `;
   document.getElementById("news-list").appendChild(li);
 });
-
 ```
+
+---
+
+### トップページ
+
+[HTML](/index.html)
+[JavaScript](/assets/js/script.js)
+
+### 記事詳細ページ
+
+※詳細ページについては、記事詳細ページ用のHTMLひとつを使って、<br />URLパラメーターで記事IDを受け取り、APIから該当記事を取得して表示します。
+
+[HTML](/news/post/index.html)
+[JavaScript](/assets/js/post.js)
+
+### 一覧ページ
+
+[HTML](/news/index.html)
+[JavaScript](/assets/js/news.js)
 
 ---
 
