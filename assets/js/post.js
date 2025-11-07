@@ -18,10 +18,10 @@ const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news/${newsId}`;
  * 2. fetch API で microCMS から記事データを取得する
  * 3. JSON に変換して各要素に代入する
  *    - タイトルを表示
+ *    - サムネイル画像を表示（なければダミー画像を利用）
  *    - 公開日を「YYYY-MM-DD」形式で表示
  *    - カテゴリを表示
  *    - 本文をそのまま HTML として挿入
- *    - サムネイル画像を表示（なければダミー画像を利用）
  * 4. もし通信や変換に失敗したら、エラーを表示する
  *
  * @async

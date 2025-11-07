@@ -3,6 +3,7 @@
 ## microCMSについて
 
 国内では、**microCMS** が代表的なヘッドレスCMSとして人気です。
+
 [microCMS｜APIベースの日本製ヘッドレスCMS](https://microcms.io/)
 
 ## 🌟 特徴

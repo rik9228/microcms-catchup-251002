@@ -45,7 +45,7 @@ async function fetchNews() {
         .replace(/\s+/g, " ")      // 余計な空白を整形
         .trim();
 
-      // 80文字を超えたら省略
+      // 80文字を超えたら省略（抜粋文）
       const excerpt = plainText.length > 80 ? plainText.slice(0, 80) + "…" : plainText;
 
       // li 要素を生成

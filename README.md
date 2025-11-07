@@ -11,7 +11,7 @@
 3. [Javascriptの基礎](./docs/Javascript基礎.md)
 4. [microCMSを使ってみる](./docs/microCMSを使ってみる.md)
 5. [サイトに公開しよう](./docs/サイトに公開しよう.md)
-6. [他の案件で使用する場合](./docs/他の案件で使用する場合.md)
+6. [FAQ](./docs/faq.md)
 
 ## 📂 プロジェクト構成
 
