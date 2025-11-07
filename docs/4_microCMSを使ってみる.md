@@ -138,4 +138,4 @@ data.contents.forEach(item => {
 
 ---
 
-[サイトに公開しよう](/docs/サイトに公開しよう.md)
+[サイトに公開しよう](/docs/5_サイトに公開しよう.md)
