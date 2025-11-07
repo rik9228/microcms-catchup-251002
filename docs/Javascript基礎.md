@@ -1,4 +1,4 @@
-# 💡 microCMS連携の前に理解しておきたいこと（JavaScript基礎） - 10 min
+# 💡 microCMS連携の前に理解しておきたいこと（JavaScript基礎） - 15 min
 
 microCMSを使う前に、まずは以下の基本的なJavaScriptの知識をおさえておきましょう。  
 これらを理解しておくと、APIとのやり取りやデータ表示の流れがスムーズになります。

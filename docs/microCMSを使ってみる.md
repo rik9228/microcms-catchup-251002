@@ -35,7 +35,9 @@
 ### 流れ 
 
 1. セットアップ
-    -  リポジトリのクローン（アカウントをお持ちでない方は、[こちら]()を展開してください。）
+    -  リポジトリのクローン（アカウントをお持ちでない方は、こちらよりをZIPを落としてください。）
+       -  [完成版](https://github.com/rik9228/microcms-catchup_251107/)
+       -  [初期版](https://github.com/rik9228/microcms-catchup_251107/tree/feature/init)
    - サービス作成（microCMS）
 2. トップページ作成
 3. 詳細ページ作成
