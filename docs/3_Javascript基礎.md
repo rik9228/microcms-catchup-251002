@@ -57,19 +57,20 @@ https://cybozu.dev/ja/tutorials/hello-js/promise/
  *
  * @param {number} ms - 停止する時間（ミリ秒）
  */
-function blockSleep(ms) {
-  const start = Date.now();
-
-  // 指定時間に達するまで空ループを続ける
-  while (Date.now() - start < ms) {
-    // ここでCPUを消費しながら待機
-    return;
+function sleep(delay) {
+  const startTime = Date.now();
+  // 指定ミリ秒間だけループさせる
+  while (true) {
+    const diffTime = Date.now() - startTime;
+    if (diffTime >= delay) {
+      return; // 指定した時間が経過したら、関数を終了させる
+    }
   }
 }
 
-console.log('🚀 処理を開始します');
-blockSleep(10000); // 10秒間ブロック
-console.log('✅ 処理が再開されました');
+console.log('1. 処理を開始します');
+sleep(10000); // 5,000ミリ秒（5秒間）停止する
+console.log('2. 処理を終了します');
 ```
 
 -> 実行すると最初のログを出力した後10秒間画面が停止し、操作を受け付けなくなる。
