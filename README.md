@@ -27,12 +27,6 @@ microcms-catchup_251107/
 │   ├── index.html
 │   └── news
 ├── docs
-│   ├── CMSについて.md
-│   ├── Javascript基礎.md
-│   ├── microCMSを使ってみる.md
-│   ├── はじめに.md
-│   ├── サイトに公開しよう.md
-│   └── 他の案件で使用する場合.md
 ├── index.html
 ├── news
 │   ├── index.html
