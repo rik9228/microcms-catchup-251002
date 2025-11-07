@@ -6,11 +6,11 @@
 ---
 
 ## 📚 学べること
-1. [はじめに](./docs/はじめに.md)
-2. [CMSについて](./docs/CMSについて.md)
-3. [Javascriptの基礎](./docs/Javascript基礎.md)
-4. [microCMSを使ってみる](./docs/microCMSを使ってみる.md)
-5. [サイトに公開しよう](./docs/サイトに公開しよう.md)
+1. [はじめに](./docs/1_はじめに.md)
+2. [CMSについて](./docs/2_CMSについて.md)
+3. [Javascriptの基礎](./docs/3_Javascript基礎.md)
+4. [microCMSを使ってみる](./docs/4_microCMSを使ってみる.md)
+5. [サイトに公開しよう](./docs/5_サイトに公開しよう.md)
 6. [使用するにあたり](./docs/使用するにあたり.md)
 
 ## 📂 プロジェクト構成

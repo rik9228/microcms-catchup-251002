@@ -198,4 +198,4 @@ WordPressは「家（Webサイト）」と「中身（記事）」が一体に�
 
 ## 次に読む
 
-- [microCMS連携の前に理解しておきたいこと（JavaScript基礎）](/docs/Javascript基礎.md)
+- [microCMS連携の前に理解しておきたいこと（JavaScript基礎）](/docs/3_Javascript基礎.md)
