@@ -17,13 +17,28 @@
 
 ```bash
 microcms-catchup_251107/
-├── index.html # トップページ
-├── news/ # ニュース一覧・詳細ページ
-│ ├── index.html
-│ └── post/index.html
-├── package.json # Node.js パッケージ管理
-├── .gitignore # Git 管理から除外するファイル設定
-└── README.md # この説明ファイル
+.
+├── README.md
+├── assets
+│   ├── css
+│   └── js
+├── dist
+│   ├── assets
+│   ├── index.html
+│   └── news
+├── docs
+│   ├── CMSについて.md
+│   ├── Javascript基礎.md
+│   ├── microCMSを使ってみる.md
+│   ├── はじめに.md
+│   ├── サイトに公開しよう.md
+│   └── 他の案件で使用する場合.md
+├── index.html
+├── news
+│   ├── index.html
+│   └── post
+├── package-lock.json
+└── package.json
 ```
 
 ---
