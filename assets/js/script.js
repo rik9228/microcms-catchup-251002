@@ -1,8 +1,8 @@
 'use strict';
 
+// microCMS のサービスドメインと API キーを環境変数から取得
 const SERVICE_DOMAIN = window.ENV.MICROCMS_SERVICE_DOMAIN;
 const API_KEY = window.ENV.MICROCMS_API_KEY;
-
 // microCMS の「news」エンドポイント
 const ENDPOINT = `https://${SERVICE_DOMAIN}.microcms.io/api/v1/news`;
 
@@ -81,4 +81,4 @@ async function fetchNews() {
 }
 
 // 関数を実行してページ読み込み時にニュースを表示する
-// fetchNews();
+fetchNews();
